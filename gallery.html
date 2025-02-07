@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project Gallery | SafeTrack</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="gallery.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+
+  <!-- (Optional Header if not already on your site) -->
+  <header>
+        <div class="logo-container">
+            <img src="images/logo.png" alt="SafeTrack Logo" class="logo" width="50" height="50">
+            <span class="company-name">SafeTrack</span>
+        </div>
+        
+        <!-- Update the navigation in header -->
+        <nav class="desktop-nav">
+         <ul>
+           <li><a href="index.html">Home</a></li>
+             <li class="dropdown">
+               <a href="#services">Services <i class="fas fa-chevron-down"></i></a>
+                <ul class="submenu">
+                 <li><a href="electrical_service.html#electrical">Electrical Installation & Maintenance</a></li>
+                 <li><a href="civil.html">Civil Construction</a></li>
+                 <li><a href="mechanical.html">Mechanical Works</a></li>
+                 <li><a href="Communication.html">Communication & Automation/IT Solutions</a></li>
+                 <li><a href="testing.html">Testing & Commissioning</a></li>
+                 <li><a href="manpower.html">Manpower Supply</a></li>
+                </ul>
+             </li>
+            <li><a href="tools.html">Tools & Equipments</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <button class="mobile-menu-toggle" aria-label="Open navigation menu">☰</button>
+    </header>
+
+  <!-- Hero Section -->
+  <section class="gallery-hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Project Gallery</h1>
+      <p>Experience our expertise in every frame</p>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery-section">
+    <div class="grid">
+      <!-- Repeat for 24 images. Customize grid modifiers as desired. -->
+      <div class="grid-item grid-item--large" data-index="1">
+        <img src="images/gallery1.jpg" alt="Project 1">
+      </div>
+      <div class="grid-item" data-index="2">
+        <img src="images/gallery2.jpg" alt="Project 2">
+      </div>
+      <div class="grid-item grid-item--tall" data-index="3">
+        <img src="images/gallery3.jpg" alt="Project 3">
+      </div>
+      <div class="grid-item" data-index="4">
+        <img src="images/gallery4.jpg" alt="Project 4">
+      </div>
+      <div class="grid-item" data-index="5">
+        <img src="images/gallery5.jpg" alt="Project 5">
+      </div>
+      <div class="grid-item grid-item--wide" data-index="6">
+        <img src="images/gallery6.jpg" alt="Project 6">
+      </div>
+      <div class="grid-item" data-index="7">
+        <img src="images/gallery7.jpg" alt="Project 7">
+      </div>
+      <div class="grid-item" data-index="8">
+        <img src="images/gallery8.jpg" alt="Project 8">
+      </div>
+      <div class="grid-item grid-item--large" data-index="9">
+        <img src="images/gallery9.jpg" alt="Project 9">
+      </div>
+      <div class="grid-item" data-index="10">
+        <img src="images/gallery10.jpg" alt="Project 10">
+      </div>
+      <div class="grid-item grid-item--tall" data-index="11">
+        <img src="images/gallery11.jpg" alt="Project 11">
+      </div>
+      <div class="grid-item" data-index="12">
+        <img src="images/gallery12.jpg" alt="Project 12">
+      </div>
+      <div class="grid-item" data-index="13">
+        <img src="images/gallery13.jpg" alt="Project 13">
+      </div>
+      <div class="grid-item grid-item--wide" data-index="14">
+        <img src="images/gallery14.jpg" alt="Project 14">
+      </div>
+      <div class="grid-item" data-index="15">
+        <img src="images/gallery15.jpg" alt="Project 15">
+      </div>
+      <div class="grid-item" data-index="16">
+        <img src="images/gallery16.jpg" alt="Project 16">
+      </div>
+      <div class="grid-item grid-item--large" data-index="17">
+        <img src="images/gallery17.jpg" alt="Project 17">
+      </div>
+      <div class="grid-item" data-index="18">
+        <img src="images/gallery18.jpg" alt="Project 18">
+      </div>
+      <div class="grid-item grid-item--tall" data-index="19">
+        <img src="images/gallery19.jpg" alt="Project 19">
+      </div>
+      <div class="grid-item" data-index="20">
+        <img src="images/gallery20.jpg" alt="Project 20">
+      </div>
+      <div class="grid-item" data-index="21">
+        <img src="images/gallery21.jpg" alt="Project 21">
+      </div>
+      <div class="grid-item grid-item--wide" data-index="22">
+        <img src="images/gallery22.jpg" alt="Project 22">
+      </div>
+      <div class="grid-item" data-index="23">
+        <img src="images/gallery23.jpg" alt="Project 23">
+      </div>
+      <div class="grid-item" data-index="24">
+        <img src="images/gallery24.jpg" alt="Project 24">
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal for Expanded Image -->
+  <div id="modal" class="modal">
+    <span class="modal-close">&times;</span>
+    <img class="modal-content" id="modal-img">
+  </div>
+
+
+  <!-- JavaScript for Lightbox Functionality -->
+  <script>
+    // Select all grid items and modal elements
+    const gridItems = document.querySelectorAll('.grid-item');
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalClose = document.querySelector('.modal-close');
+
+    gridItems.forEach(item => {
+      item.addEventListener('click', function() {
+        const img = this.querySelector('img');
+        modal.style.display = "block";
+        modalImg.src = img.src;
+      });
+    });
+
+    // Close the modal when the close button is clicked
+    modalClose.addEventListener('click', function() {
+      modal.style.display = "none";
+    });
+
+    // Also close the modal when clicking outside the image
+    modal.addEventListener('click', function(e) {
+      if(e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  </script>
+
+</body>
+
+  <!-- Optional Footer -->
+      <footer class="footer">
+    <div class="content-wrapper footer-columns">
+        <!-- About Us Column -->
+        <div class="footer-col">
+            <h4>About Us</h4>
+            <p>SafeTrack is a premier contracting company in Saudi Arabia, delivering excellence in electrical, civil, and mechanical engineering since 2008.</p>
+        </div>
+
+        <!-- Services Column -->
+        <div class="footer-col">
+            <h4>Our Services</h4>
+            <ul class="footer-services">
+                <li><a href="electrical_service.html#electrical">Electrical Installation & Maintenance</a></li>
+                 <li><a href="civil.html">Civil Construction</a></li>
+                 <li><a href="mechanical.html">Mechanical Works</a></li>
+                 <li><a href="Communication.html">Communication & Automation/IT Solutions</a></li>
+                 <li><a href="testing.html">Testing & Commissioning</a></li>
+                 <li><a href="manpower.html">Manpower Supply</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Column -->
+        <div class="footer-col">
+            <h4>Contact Us</h4>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>17/18TH CROSS, KING ABDUL AZIZ ROAD,
+P. O. BOX 2156 AL‐KHOBAR 31952, KSA</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+966 13 8677845</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span> info@safetrackco.com</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Keep the existing footer structure but add this CSS -->
+
+<style>
+/* Updated Footer Styles */
+.footer-col {
+    text-align: left;
+    position: relative;
+    padding: 0 40px;
+}
+
+.footer-col:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.footer-services {
+    list-style: none;
+    padding-left: 0;
+}
+
+.footer-services li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+}
+
+.footer-services li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: 700;
+    transition: var(--transition);
+}
+
+.footer-services li:hover::before {
+    transform: translateX(5px);
+}
+
+.footer-services a {
+    color: var(--light-text);
+    text-decoration: none;
+    transition: var(--transition);
+    font-size: 0.95rem;
+}
+
+.footer-services a:hover {
+    color: var(--primary-color);
+    padding-left: 5px;
+}
+
+@media (max-width: 768px) {
+    .footer-col {
+        padding: 20px 0;
+        text-align: center;
+    }
+    
+    .footer-col:not(:last-child)::after {
+        display: none;
+    }
+    
+    .footer-col:not(:last-child)::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.2);
+    }
+    
+    .footer-services li {
+        padding-left: 0;
+        text-align: center;
+    }
+    
+    .footer-services li::before {
+        display: none;
+    }
+}
+</style>
+    <!-- Copyright Section -->
+    <div class="copyright">
+        <p>© 2025 SafeTrack. All Rights Reserved.</p>
+        <div class="social-links">
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+    </div>
+</footer>
+
+  <!-- Optional JavaScript for Lightbox or click effects -->
+  <script>
+    // Example: Show an alert on image click (replace with lightbox functionality as needed)
+    document.querySelectorAll('.grid-item').forEach(item => {
+      item.addEventListener('click', function() {
+        const index = this.getAttribute('data-index');
+        alert("Project " + index + " clicked. Open detailed view here.");
+        // Replace alert with your lightbox/modal opening code.
+      });
+    });
+  </script>
+
+</body>
+</html>
