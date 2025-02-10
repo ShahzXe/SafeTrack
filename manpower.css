@@ -122,3 +122,41 @@ footer {
     flex-direction: column;
   }
 }
+
+
+/* Import Montserrat from Google Fonts for a professional look */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Developer Credit Styles */
+.developer-credit {
+    font-family: 'Montserrat', sans-serif;  /* Professional font */
+    color: var(--primary-color);
+    display: inline-block;
+    position: relative;
+    padding-bottom: 3px;
+    transition: color 0.3s ease;
+}
+
+.developer-credit a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.developer-credit::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.developer-credit:hover {
+    color: #fff;
+}
+
+.developer-credit:hover::after {
+    width: 100%;
+}
